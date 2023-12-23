@@ -1,0 +1,62 @@
+//Main Function
+
+#include <iostream>
+# include <time.h>
+# include <stdlib.h>
+using namespace std;
+int main() {
+    int rand_number, number, nguess =1,choice;
+    srand (time(0));
+    rand_number = rand()%100+1;
+    cout<<"**Welcome to Guess The Number**"<<endl;
+    cout<<"\n";
+   // cout<<"the number is \n"<<rand_number;
+    cout<<"\nAre you want to play the Game:\n";
+    cout<<"1.Yes\n2.No\n";
+    cin>>choice;
+if (choice==1)
+{
+    do {
+
+       cout<<"\n";
+       cout<<"Enter the number Between 1 to 100";
+       cout<<"\n";
+       cin>>number;
+
+	if(number> rand_number)
+	{   
+	    cout<<"Lower Number Please\n";
+
+
+	}
+	else if (number < rand_number){
+
+	    cout<<"Higher Number Please\n";
+
+	}
+	else{
+	   
+	   cout<<"You WON...\n The value is correct and you gussed in Attempts "<< nguess;
+		   
+		   return 0;
+	}
+
+	nguess++;
+
+	if (nguess==5){
+	cout<<"\n";
+	cout<<"Hurry Up!! You have only 5 attempts\n";
+	}
+      else if (nguess==10)
+	{
+    cout<<"Sorry better luck next time...."<<endl;
+	exit(0);
+	}
+ }while (number!=rand_number);
+}
+ else
+ {
+ exit (0);
+ }
+return 0;
+}
