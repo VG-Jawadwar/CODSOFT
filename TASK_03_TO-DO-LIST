@@ -1,0 +1,154 @@
+//Main Function 
+
+#include <iostream>
+#include <malloc.h>
+using namespace std;
+
+class task_info
+{
+	public :
+		string task_name;
+		string status= "NULL";
+		void getdata()
+		{
+			cout<<"\n*Enter the task: "<<endl;
+			cin>>task_name;
+			
+		}
+		void putdata(int i)
+		{
+			if (status== "NULL")
+			{
+				status = "Pending";
+			}
+			cout<<i+1<<"."<<task_name<<":"<<" Status :"<<status<<endl;
+		
+		}
+		void set_status()
+		{
+			cout<<"\n*Enter the Status you want to set:"<<endl;
+			cin>>status;
+			
+		}
+};
+
+int main()
+{
+	task_info t1[100], *tptr[100];
+	tptr[0]=&t1[0];
+	int task_no;
+	int task_completed;
+	int task_remove=-1;
+	int userChoice;
+	cout<<"-------WELCOME TO TO-DO LIST-------"<<endl;
+	
+	do
+	{
+	
+	    cout << "\nMenu:\n";
+	    cout<<"----------------------------\n";
+        cout << "1. Add Task\n";
+        cout<<"----------------------------\n";
+        cout << "2. Display Tasks\n";
+        cout<<"----------------------------\n";
+        cout << "3. Mark Task as Completed\n";
+        cout<<"----------------------------\n";
+        cout<<  "4. Remove task from List\n";
+        cout<<"----------------------------\n";
+        cout << "5. Exit\n";
+        cout<<"----------------------------\n";
+        cout << "Enter your choice: ";
+        cin >> userChoice;
+        
+        switch(userChoice)
+        {
+        	case 1:
+        		cout<<"\n----------------------------------------------------------";
+        		cout<<"\n**Enter the number of task you want to enter**:"<<endl;
+        		cout<<"----------------------------------------------------------\n";
+        		cin >>task_no;
+        		for (int i=0;i<task_no;i++)
+        		{
+        			(*tptr)[i].getdata();
+        				
+				}
+			cout<<"\n**Task added Successfully**"<<endl;
+			task_remove =-1;
+			break;
+			case 2:
+				if (task_remove==-1)
+				{
+			    cout<<"\n-----------------------------------------------";
+					cout<<"\n**The Task's are as follows**:"<<endl;
+				cout<<"-----------------------------------------------\n";
+					for (int i=0;i<task_no;i++)
+					{
+						(*tptr)[i].putdata(i);
+					}
+			    }else {
+			    	goto display;
+				}
+        	break;
+        	case 3:
+        	cout<<"\n--------------------------------------------------------------------------------";
+        	cout<<"\n**Enter the index Number of task you want to mark as completed/Pending**:"<<endl;
+        	cout<<"--------------------------------------------------------------------------------\n";
+        	cin>>task_completed;
+        	for (int i=0;i<task_no;i++)
+        	{
+        		if (task_completed==i)
+        		{
+        		    (*tptr)[i].set_status();
+        		    
+				}
+				if (task_completed>=task_no)
+				{
+					cout<<"**Index not found**"<<endl;
+						break;
+				}
+			}
+			break;
+			case 4:
+			cout<<"\n----------------------------------------------------------";
+			cout <<"\n**Enter the index number to Remove the task**: "<<endl;
+			cout<<"----------------------------------------------------------\n";
+			cin >>task_remove;
+			for (int i=task_remove;i<task_no-1;i++)
+			{
+				if (task_remove==i)
+        		{
+        			(*tptr)[i]=(*tptr)[i+1];
+        			cout<<"\n**Task Removed Successfully**"<<endl;
+        		    break;
+				
+				}else {
+					cout<<"**Index not found**"<<endl;
+				}
+			}
+			display:
+			cout<<"\n----------------------------------------------------------";
+			cout<<"\nThe Task's are as follows: "<<endl;
+			cout<<"----------------------------------------------------------\n";
+				for (int i=0;i<task_no-1;i++)
+				{
+					(*tptr)[i].putdata(i);
+				}
+			break;	
+			default:
+			{
+			cout<<"\n----------------------------------------------------------";
+				cout<<"\n**EXITTING PROGRAM.......**"<<endl;
+			cout<<"----------------------------------------------------------\n";
+				break;
+			}
+		}
+   }while(userChoice!=5);
+}
+
+
+/*
+
+   MADE BY:
+      Vaibhav Jawadwar 
+      copyrighted © by Vaibhav Jawadwar. All rights Reserved.
+*/
