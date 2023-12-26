@@ -1,0 +1,88 @@
+//Main Function
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int NUM1,NUM2;
+	int Choice;
+	int add,sub,mul,div,mod;
+	
+	cout<<"\n-----------WELCOME TO SIMPLE CALCULATOR-------------\n";
+ 	
+	cout<<"\n**Enter the value of Number 1** :";
+	cin>>NUM1;
+	cout<<"**Enter the value of Number 2** :";
+	cin>>NUM2;
+	cout<<endl;
+	do
+	{
+	
+    	cout << "\nMenu:\n";
+	    cout<<"----------------------------\n";
+        cout << "1. Addition\n";
+        cout<<"----------------------------\n";
+        cout << "2. Substraction\n";
+        cout<<"----------------------------\n";
+        cout << "3. Multiplication\n";
+        cout<<"----------------------------\n";
+        cout<<  "4. Division\n";
+        cout<<"----------------------------\n";
+        cout << "5. Modulars (Remainder)\n";
+        cout<<"----------------------------\n";
+        cout << "6. Exit\n";
+        cout<<"----------------------------\n";
+        cout << "Enter your choice: ";
+        cin >> Choice;
+        switch(Choice)
+        {
+        	case 1:
+        		add = NUM1+NUM2;
+            cout<<"\n---------------------------------\n";
+        		cout<<"The Addition is : "<<add<<endl;
+        	cout<<"---------------------------------\n";
+        		break;
+        	case 2:
+        		sub = NUM1-NUM2;
+        	cout<<"\n-------------------------------------\n";
+        		cout<<"The Substraction is : "<<sub<<endl;
+        	cout<<"-------------------------------------\n";
+        		break;
+			case 3:
+			    mul = NUM1*NUM2;
+			cout<<"\n---------------------------------------\n";
+        		cout<<"The Multiplication is : "<<mul<<endl;
+        	cout<<"----------------------------------------\n";
+        		break;
+			case 4:
+			    div = NUM1/NUM2;
+			cout<<"\n------------------------------------\n";
+        		cout<<"The Division is : "<<div<<endl;
+        	cout<<"-------------------------------------\n";
+        		break;	
+        	case 5:
+        		mod = NUM1%NUM2;
+        	cout<<"\n-----------------------------------\n";
+        		cout<<"The Remainder is : "<<mod<<endl;
+        	cout<<"------------------------------------\n";
+        		break;
+        	default:
+        	cout<<"\n--------------------------------------\n";
+         	    cout<<"EXITING PROGRAM....."<<endl;
+         	cout<<"---------------------------------------\n";
+        		break;
+		}
+   }while(Choice!=6);
+    
+}
+
+
+
+
+/*
+
+   MADE BY:
+      Vaibhav Jawadwar 
+      copyrighted © by Vaibhav Jawadwar. All rights Reserved.
+*/
